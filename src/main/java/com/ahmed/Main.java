@@ -37,7 +37,7 @@ public class Main {
 //            Customer Mo = new Customer("mo salah ");
 //            List<Customer> customers = List.of(Ahmed, Mo);
 //            customerRepository.saveAll(customers);
-//        };
+//        }};
 
 
     }

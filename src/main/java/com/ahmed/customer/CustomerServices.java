@@ -31,4 +31,9 @@ public class CustomerServices {
         icustomerDao.addCustomerDao(customer);
 
     }
+
+    public void updateCustomer(Customer customer) {
+        icustomerDao.updateCustomerDao(customer);
+    }
+
 }

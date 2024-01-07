@@ -31,5 +31,9 @@ private final CustomerServices customerServices ;
     public void addCustomerController(@RequestBody Customer customer){
         customerServices.addCustomer(customer);
     }
+    @PostMapping("api/v1/customer/save/{id}")
+    public void addCustomerController(@PathVariable("id") Integer id,@RequestBody Customer customer){
+        customerServices.updateCustomer(customer);
+    }
 
 }
