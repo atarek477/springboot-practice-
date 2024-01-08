@@ -25,24 +25,23 @@ public class Main {
         SpringApplication.run(Main.class, args);
 
 
-
-
-        }
-//    @Bean
-//    CommandLineRunner runner (CustomerRepository customerRepository){
-//        return args-> {
-//
-//            Customer Ahmed = new Customer("ahmed tarek");
-//            //customers.add(Ahmed);
-//            Customer Mo = new Customer("mo salah ");
-//            List<Customer> customers = List.of(Ahmed, Mo);
-//            customerRepository.saveAll(customers);
-//        }};
-
-
     }
 
+//    @Bean
+//    CommandLineRunner runner(CustomerRepository customerRepository) {
+//        return args -> {
+//
+//            Customer Ahmed = new Customer("ahmed tarek", "ahmed.tarek@yahoo.com", 23);
+//            //customers.add(Ahmed);
+//            Customer Mo = new Customer("mo salah ", "mo.salah@yahoo.com", 23);
+//            List<Customer> customers = List.of(Ahmed, Mo);
+//            customerRepository.saveAll(customers);
+//        };
+//
+//
+//    }
 
+}
 
 
 

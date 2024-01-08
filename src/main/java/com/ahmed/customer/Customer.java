@@ -5,26 +5,40 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-public  class Customer{
+public  class Customer {
     public Customer(String name) {
         this.name = name;
     }
 
     @Id
-   @SequenceGenerator( name = "customer_id" ,sequenceName = "customer_id" )
-   @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "customer_id")
-    private int id ;
+    @SequenceGenerator(name = "customer_id", sequenceName = "customer_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id")
+    private int id;
 
-   @Column(name = "customer_name")
+    @Column(name = "customer_name")
     private String name;
 
+    @Column(name = "customer_email")
+    private String email;
+
+    @Column(name = "customer_age")
+    private int age;
+
+
     public Customer() {
+    }
+
+    public Customer(String name, String email, int age) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
     }
 
     public Customer(int id, String name) {
         this.id = id;
         this.name = name;
     }
+
 
     public int getId() {
         return id;
@@ -42,12 +56,21 @@ public  class Customer{
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
@@ -55,11 +78,21 @@ public  class Customer{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && Objects.equals(name, customer.name);
+        return id == customer.id && age == customer.age && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, email, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
