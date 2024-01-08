@@ -13,7 +13,7 @@ public class CustomerServices {
 
 
 
-    public CustomerServices(@Qualifier("jpa") ICustomerDao icustomerDao) {
+    public CustomerServices(@Qualifier("JDBC") ICustomerDao icustomerDao) {
         this.icustomerDao = icustomerDao;
     }
 

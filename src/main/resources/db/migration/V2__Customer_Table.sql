@@ -1,7 +1,7 @@
 CREATE TABLE Customer (
-id INT,
-name TEXT,
-email TEXT,
-age  INT
+id    BIGSERIAL PRIMARY KEY ,
+name  TEXT      NOT NULL    ,
+email TEXT      NOT NULL    ,
+age   INT       NOT NULL
 
 );
