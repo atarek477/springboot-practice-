@@ -46,4 +46,9 @@ referenceById.setName(customer.getName());
         customerRepository.save(referenceById);
 }
     }
+
+    @Override
+    public void deleteCustomerByIdDao(Integer id) {
+
+    }
 }

@@ -36,4 +36,11 @@ public class CustomerDao implements ICustomerDao {
     public void updateCustomerDao(Customer customer) {
 
     }
+
+    @Override
+    public void deleteCustomerByIdDao(Integer id) {
+
+
+
+    }
 }

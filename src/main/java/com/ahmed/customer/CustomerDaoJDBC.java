@@ -1,8 +1,7 @@
 package com.ahmed.customer;
 
-import org.hibernate.sql.Update;
-import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,19 +12,31 @@ import java.util.Optional;
 public class CustomerDaoJDBC implements ICustomerDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private final  CustomerRowMapper customerRowMapper;
 
-    public CustomerDaoJDBC(JdbcTemplate jdbcTemplate) {
+    public CustomerDaoJDBC(JdbcTemplate jdbcTemplate, CustomerRowMapper customerRowMapper) {
         this.jdbcTemplate = jdbcTemplate;
+        this.customerRowMapper = customerRowMapper;
     }
 
     @Override
     public List<Customer> getAllCustomerDao() {
-        return null;
+
+        var sql = """
+                SELECT id,name,email,age FROM customer
+                """;
+
+
+        return jdbcTemplate.query(sql,customerRowMapper);
     }
 
     @Override
     public Optional<Customer> getCustomerByIdDao(Integer id) {
-        return Optional.empty();
+        var sql ="""
+                SELECT id,name,email,age FROM customer WHERE id = ?
+                 """;
+      return   jdbcTemplate.query(sql,customerRowMapper,id).stream().findFirst();
+
     }
 
     @Override
@@ -41,5 +52,13 @@ public class CustomerDaoJDBC implements ICustomerDao {
     @Override
     public void updateCustomerDao(Customer customer) {
 
+    }
+
+    @Override
+    public void deleteCustomerByIdDao(Integer id) {
+        var sql = """
+                DELETE FROM customer WHERE id = ?
+                """;
+        jdbcTemplate.update(sql,id);
     }
 }

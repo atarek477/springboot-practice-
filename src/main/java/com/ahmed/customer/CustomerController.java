@@ -36,4 +36,11 @@ private final CustomerServices customerServices ;
         customerServices.updateCustomer(customer);
     }
 
+
+    @DeleteMapping("api/v1/customer/delete/{id}")
+    public void deleteCustomerByIdController(@PathVariable("id") Integer id){
+        customerServices.deleteCustomerById(id);
+
+    }
+
 }

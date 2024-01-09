@@ -12,4 +12,6 @@ public interface ICustomerDao {
      void addCustomerDao(Customer customer);
      void updateCustomerDao(Customer customer);
 
+     void deleteCustomerByIdDao(Integer id);
+
 }

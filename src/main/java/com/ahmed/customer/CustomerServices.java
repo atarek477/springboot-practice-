@@ -36,4 +36,9 @@ public class CustomerServices {
         icustomerDao.updateCustomerDao(customer);
     }
 
+
+    public void deleteCustomerById(Integer id){
+
+        icustomerDao.deleteCustomerByIdDao(id);
+    }
 }
