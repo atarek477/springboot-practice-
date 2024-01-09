@@ -50,9 +50,37 @@ public class CustomerDaoJDBC implements ICustomerDao {
     }
 
     @Override
-    public void updateCustomerDao(Customer customer) {
+    public void updateCustomerDao(RequestUpdate requestUpdate,Integer id) {
+        if(requestUpdate.name()!=null){
+            var sql = """
+                    UPDATE customer SET name =? WHERE id= ?
+                    """;
+            jdbcTemplate.update(sql,requestUpdate.name(),id);
+
+
+        }
+        if(requestUpdate.email()!=null){
+            var sql = """
+                    UPDATE customer SET email =? WHERE id= ?
+                    """;
+            jdbcTemplate.update(sql,requestUpdate.email(),id);
+
+
+        }
+        if(requestUpdate.age()!=0){
+            var sql = """
+                    UPDATE customer SET age=? WHERE id= ?
+                    """;
+            jdbcTemplate.update(sql,requestUpdate.age(),id);
+
+
+        }
+
+
 
     }
+
+
 
     @Override
     public void deleteCustomerByIdDao(Integer id) {

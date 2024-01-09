@@ -32,8 +32,8 @@ public class CustomerServices {
 
     }
 
-    public void updateCustomer(Customer customer) {
-        icustomerDao.updateCustomerDao(customer);
+    public void updateCustomer(RequestUpdate requestUpdate,Integer id) {
+        icustomerDao.updateCustomerDao( requestUpdate, id);
     }
 
 

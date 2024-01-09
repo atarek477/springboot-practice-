@@ -39,12 +39,12 @@ public class CustomerDaoJpa implements ICustomerDao{
     }
 
     @Override
-    public void updateCustomerDao(Customer customer) {
-        Customer referenceById = customerRepository.getReferenceById(customer.getId());
-if(!referenceById.getName().equals(customer.getName())){
-referenceById.setName(customer.getName());
-        customerRepository.save(referenceById);
-}
+    public void updateCustomerDao(RequestUpdate requestUpdate,Integer id) {
+//  todo      Customer referenceById = customerRepository.getReferenceById(customer.getId());
+//if(!referenceById.getName().equals(customer.getName())){
+//referenceById.setName(customer.getName());
+//        customerRepository.save(referenceById);
+//}
     }
 
     @Override

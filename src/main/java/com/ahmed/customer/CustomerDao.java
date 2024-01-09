@@ -33,7 +33,7 @@ public class CustomerDao implements ICustomerDao {
     }
 
     @Override
-    public void updateCustomerDao(Customer customer) {
+    public void updateCustomerDao(RequestUpdate requestUpdate,Integer id) {
 
     }
 

@@ -10,7 +10,7 @@ public interface ICustomerDao {
 
 
      void addCustomerDao(Customer customer);
-     void updateCustomerDao(Customer customer);
+     void updateCustomerDao(RequestUpdate requestUpdate,Integer id);
 
      void deleteCustomerByIdDao(Integer id);
 
