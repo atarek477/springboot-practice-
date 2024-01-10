@@ -49,6 +49,6 @@ public class CustomerDaoJpa implements ICustomerDao{
 
     @Override
     public void deleteCustomerByIdDao(Integer id) {
-
+           customerRepository.deleteById(id);
     }
 }
