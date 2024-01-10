@@ -12,9 +12,15 @@
 	<artifactId>spring-boot-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-example</name>
+	<organization>
+		<name>atarek477</name>
+		<url>http//ahmedtarek.com</url>
+	</organization>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<docker.username>atarek477</docker.username>
+		<docker.password>dckr_pat_tDC8n8aCbmQwKClS2vtZ1sqTuj4</docker.password>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -76,6 +82,27 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.0</version>
+				<configuration>
+					<from>
+						<!-- Specify your base image, for example, openjdk:11-jre -->
+						<image>openjdk:20</image>
+					</from>
+					<to>
+						<!-- Specify your target image registry and repository -->
+						<image>docker.io/${project.organization.name}/${project.artifactId}:${project.version}</image>
+						<tags>
+							<tag>latest</tag>
+						</tags>
+
+
+					</to>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

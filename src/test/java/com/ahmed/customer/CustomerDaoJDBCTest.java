@@ -10,7 +10,6 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-
 class CustomerDaoJDBCTest extends AbstractTestContainer{
  private CustomerDaoJDBC customerDaoJDBC ;
  private final CustomerRowMapper customerRowMapper = new CustomerRowMapper();
