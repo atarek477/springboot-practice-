@@ -7,14 +7,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CustomerDaoJpaTest {
 private CustomerDaoJpa customerDaoJpa;
 private  AutoCloseable autoCloseable;
 
 @Mock
-private  CustomerRepository customerRepository;
+private CustomerRepository customerRepository;
     @BeforeEach
     void setUp() {
         autoCloseable= MockitoAnnotations.openMocks(this);
