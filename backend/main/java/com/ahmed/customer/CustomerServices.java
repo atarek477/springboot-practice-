@@ -1,5 +1,6 @@
 package com.ahmed.customer;
 
+
 import com.ahmed.exception.ResourceNotFound;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class CustomerServices {
 
     public void addCustomer(Customer customer){
         icustomerDao.addCustomerDao(customer);
-
+//todo handle exception
     }
 
     public void updateCustomer(RequestUpdate requestUpdate,Integer id) {

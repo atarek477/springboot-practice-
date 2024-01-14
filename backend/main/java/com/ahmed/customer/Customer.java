@@ -11,39 +11,46 @@ public  class Customer {
     }
 
     @Id
-    @SequenceGenerator(name = "customer_id", sequenceName = "customer_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id")
+    @SequenceGenerator(name = "customer_id_seq", sequenceName = "customer_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_seq")
+
     private int id;
 
-    @Column(name = "customer_name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "customer_email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "customer_age")
+    @Column(name = "age")
     private int age;
+
+
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
+
+    private Gender gender;
 
 
     public Customer() {
     }
 
-    public Customer(String name, String email, int age) {
+    public Customer(String name, String email, int age, Gender gender) {
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender= gender;
     }
 
-    public Customer(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
-    public Customer(int id, String name, String email, int age) {
+
+    public Customer(int id, String name, String email, int age, Gender gender) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
+        this.gender=gender;
     }
 
     public int getId() {
@@ -78,18 +85,25 @@ public  class Customer {
     public void setAge(int age) {
         this.age = age;
     }
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return id == customer.id && age == customer.age && Objects.equals(name, customer.name) && Objects.equals(email, customer.email);
+        return id == customer.id && age == customer.age && Objects.equals(name, customer.name) && Objects.equals(email, customer.email) && gender == customer.gender;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, age);
+        return Objects.hash(id, name, email, age, gender);
     }
 
     @Override
@@ -99,6 +113,7 @@ public  class Customer {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
+                ", gender=" + gender +
                 '}';
     }
 }

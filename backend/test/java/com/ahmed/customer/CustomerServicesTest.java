@@ -32,7 +32,7 @@ class CustomerServicesTest {
     @Test
     void getCustomerById() {
         int id =5;
-        Customer customer= new Customer(id,"ahmed tarek", "ahmed.tarek@gmail.com",34);
+        Customer customer= new Customer(id,"ahmed tarek", "ahmed.tarek@gmail.com",34, Gender.MALE);
         Mockito.when(iCustomerDao.getCustomerByIdDao(id)).thenReturn(Optional.of(customer));
         Optional<Customer> customerById = customerServices.getCustomerById(id);
        assertThat(customerById).isPresent()
@@ -42,7 +42,7 @@ class CustomerServicesTest {
     @Test
     void addCustomer() {
         int id=7;
-        Customer customer= new Customer(id,"ahmed tarek", "ahmed.tarek@gmail.com",34);
+        Customer customer= new Customer(id,"ahmed tarek", "ahmed.tarek@gmail.com",34, Gender.MALE);
 
         customerServices.addCustomer(customer);
         Mockito.verify(iCustomerDao).addCustomerDao(customer);

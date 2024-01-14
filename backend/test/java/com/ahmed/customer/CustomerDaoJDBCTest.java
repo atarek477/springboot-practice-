@@ -20,7 +20,7 @@ class CustomerDaoJDBCTest extends AbstractTestContainer{
 
     @Test
     void getAllCustomerDao() {
-       Customer customer =new Customer("ahmed tarek","ahmed.tare@yahoo.com",33);
+       Customer customer =new Customer("ahmed tarek","ahmed.tare@yahoo.com",33, Gender.MALE);
        customerDaoJDBC.addCustomerDao(customer);
        List<Customer> customers= customerDaoJDBC.getAllCustomerDao();
        assertThat(customers).isNotEmpty();
@@ -29,7 +29,7 @@ class CustomerDaoJDBCTest extends AbstractTestContainer{
 
     @Test
     void getCustomerByIdDao() {
-       Customer customer =new Customer("alex tarek","alex.tare@yahoo.com",33);
+       Customer customer =new Customer("alex tarek","alex.tare@yahoo.com",33, Gender.MALE);
        customerDaoJDBC.addCustomerDao(customer);
        List<Customer> customers= customerDaoJDBC.getAllCustomerDao();
        int id = customers.stream().filter(c->c.getEmail().equals("alex.tare@yahoo.com"))
@@ -49,7 +49,7 @@ class CustomerDaoJDBCTest extends AbstractTestContainer{
 
     @Test
     void addCustomerDao() {
-       Customer customer =new Customer("alex john","al.john@yahoo.com",76);
+       Customer customer =new Customer("alex john","al.john@yahoo.com",76, Gender.MALE);
        customerDaoJDBC.addCustomerDao(customer);
        List<Customer> customers= customerDaoJDBC.getAllCustomerDao();
 
@@ -74,7 +74,7 @@ class CustomerDaoJDBCTest extends AbstractTestContainer{
 
     @Test
     void deleteCustomerByIdDao() {
-       Customer customer =new Customer("juu john","al.johhh@yahoo.com",76);
+       Customer customer =new Customer("juu john","al.johhh@yahoo.com",76, Gender.MALE);
        customerDaoJDBC.addCustomerDao(customer);
        List<Customer> customers= customerDaoJDBC.getAllCustomerDao();
 

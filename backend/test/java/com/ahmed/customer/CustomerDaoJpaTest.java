@@ -43,7 +43,7 @@ private CustomerRepository customerRepository;
 
     @Test
     void addCustomerDao() {
-        Customer customer= new Customer(2,"ahmed tarek", "ahmed.tarek@gmail.com",34);
+        Customer customer= new Customer(2,"ahmed tarek", "ahmed.tarek@gmail.com",34, Gender.MALE);
         customerDaoJpa.addCustomerDao(customer);
         Mockito.verify(customerRepository).save(customer);
     }

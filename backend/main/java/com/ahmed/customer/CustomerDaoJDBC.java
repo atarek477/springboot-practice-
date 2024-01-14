@@ -22,7 +22,7 @@ public class CustomerDaoJDBC implements ICustomerDao {
     public List<Customer> getAllCustomerDao() {
 
         var sql = """
-                SELECT id,name,email,age FROM customer
+                SELECT id,name,email,age,gender FROM customer
                 """;
 
 
@@ -32,7 +32,7 @@ public class CustomerDaoJDBC implements ICustomerDao {
     @Override
     public Optional<Customer> getCustomerByIdDao(Integer id) {
         var sql ="""
-                SELECT id,name,email,age FROM customer WHERE id = ?
+                SELECT id,name,email,age,gender FROM customer WHERE id = ?
                  """;
       return   jdbcTemplate.query(sql,customerRowMapper,id).stream().findFirst();
 
@@ -41,9 +41,9 @@ public class CustomerDaoJDBC implements ICustomerDao {
     @Override
     public void addCustomerDao(Customer customer) {
         var sql  = """
-                INSERT INTO customer (name ,email,age) VALUES (?,?,?)
+                INSERT INTO customer (name ,email,age,gender) VALUES (?,?,?,?)
                 """;
-        int update = jdbcTemplate.update(sql, customer.getName(), customer.getEmail(), customer.getAge());
+        int update = jdbcTemplate.update(sql, customer.getName(), customer.getEmail(), customer.getAge(),customer.getGender().name());
         System.out.println("result"+update);
 
     }

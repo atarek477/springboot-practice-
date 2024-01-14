@@ -14,7 +14,8 @@ import {
   Tag,
 } from '@chakra-ui/react'
 
-export default function CardWithImage({id,name,email,age}) {
+export default function CardWithImage({id,name,email,age,gender,ImageNumber}) {
+  const genderImage=gender==="MALE"?"men":"women"
   return (
     <Center py={6}>
       <Box
@@ -28,7 +29,7 @@ export default function CardWithImage({id,name,email,age}) {
           h={'120px'}
           w={'full'}
           src={
-            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+             'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
           }
           objectFit="cover"
           alt="#"
@@ -37,7 +38,7 @@ export default function CardWithImage({id,name,email,age}) {
           <Avatar
             size={'xl'}
             src={
-              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
+              `https://randomuser.me/api/portraits/${genderImage}/${ImageNumber}.jpg`
             }
             css={{
               border: '2px solid white',
@@ -53,6 +54,8 @@ export default function CardWithImage({id,name,email,age}) {
             </Heading>
             <Text color={'gray.500'}>{email}</Text>
             <Text color={'gray.500'}>Age {age}</Text>
+            <Text color={'gray.500'}>{gender}</Text>
+
 
           </Stack>
 
