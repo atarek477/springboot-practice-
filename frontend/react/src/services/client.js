@@ -19,3 +19,16 @@ export const saveCustomer =async(customer)=>{
     
     
     }
+
+
+    export const deleteCustomer =async(customerId)=>{
+        try{
+            console.log(customerId)
+        return await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer/delete/${customerId}`)
+        
+        }catch(e){
+            console.log(customerId)
+            throw e}
+        
+        
+        }

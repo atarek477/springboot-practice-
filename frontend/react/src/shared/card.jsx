@@ -13,6 +13,7 @@ import {
   useColorModeValue,
   Tag,
 } from '@chakra-ui/react'
+import DeleteCustomerComponent from './deleteCustomerComponent'
 
 export default function CardWithImage({id,name,email,age,gender,ImageNumber}) {
   const genderImage=gender==="MALE"?"men":"women"
@@ -55,6 +56,8 @@ export default function CardWithImage({id,name,email,age,gender,ImageNumber}) {
             <Text color={'gray.500'}>{email}</Text>
             <Text color={'gray.500'}>Age {age}</Text>
             <Text color={'gray.500'}>{gender}</Text>
+
+           < DeleteCustomerComponent id={id}  />
 
 
           </Stack>
