@@ -25,21 +25,21 @@ public class Main {
 
     }
 
-    @Bean
-    CommandLineRunner runner(CustomerRepository customerRepository) {
-        return args -> {
-
-            Customer Ahmed = new Customer("ahmed tarek", "ahmed.tarek@yahoo.com", 23, Gender.MALE);
-            //customers.add(Ahmed);
-            Customer Mo = new Customer("mo salah ", "mo.salah@yahoo.com", 23, Gender.MALE);
-            List<Customer> customers = List.of(Ahmed, Mo);
-            customerRepository.saveAll(customers);
-        };
+//    @Bean
+//    CommandLineRunner runner(CustomerRepository customerRepository) {
+//        return args -> {
+//
+//            Customer Ahmed = new Customer("ahmed tarek", "ahmed.tarek@yahoo.com", 23, Gender.MALE);
+//            //customers.add(Ahmed);
+//            Customer Mo = new Customer("mo salah ", "mo.salah@yahoo.com", 23, Gender.MALE);
+//            List<Customer> customers = List.of(Ahmed, Mo);
+//            customerRepository.saveAll(customers);
+//        };
 
 
     }
 
-}
+
 
 
 

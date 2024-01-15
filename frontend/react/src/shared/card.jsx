@@ -14,9 +14,12 @@ import {
   Tag,
 } from '@chakra-ui/react'
 import DeleteCustomerComponent from './deleteCustomerComponent'
+import UpdateDrawer from './UpdateDrawer'
+import { useDisclosure } from '@chakra-ui/react';
 
 export default function CardWithImage({id,name,email,age,gender,ImageNumber}) {
   const genderImage=gender==="MALE"?"men":"women"
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Center py={6}>
       <Box
@@ -58,6 +61,7 @@ export default function CardWithImage({id,name,email,age,gender,ImageNumber}) {
             <Text color={'gray.500'}>{gender}</Text>
 
            < DeleteCustomerComponent id={id}  />
+           <UpdateDrawer id={id} name={name} email={email} age={age} gender={gender} onOpen={onOpen} />
 
 
           </Stack>

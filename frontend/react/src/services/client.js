@@ -1,34 +1,45 @@
 import axios from 'axios';
-export const getCustomer =async()=>{
-try{
+export const getCustomer = async () => {
+    try {
 
-return await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer`)
+        return await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer`)
 
-}catch(e){throw e}
+    } catch (e) { throw e }
 
 
 }
 
 
-export const saveCustomer =async(customer)=>{
-    try{
-    
-    return await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer/save`,customer)
-    
-    }catch(e){throw e}
-    
-    
+export const saveCustomer = async (customer) => {
+    try {
+
+        return await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer/save`, customer)
+
+    } catch (e) { throw e }
+
+
+}
+
+
+export const deleteCustomer = async (customerId) => {
+    try {
+        console.log(customerId)
+        return await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer/delete/${customerId}`)
+
+    } catch (e) {
+        console.log(customerId)
+        throw e
     }
 
 
-    export const deleteCustomer =async(customerId)=>{
-        try{
-            console.log(customerId)
-        return await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer/delete/${customerId}`)
-        
-        }catch(e){
-            console.log(customerId)
-            throw e}
-        
-        
-        }
+}
+
+export const updateCustomer = async (customerId,customer) => {
+    try {
+
+        return await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/customer/update/${customerId}`, customer)
+
+    } catch (e) { throw e }
+
+
+}

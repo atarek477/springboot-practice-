@@ -37,7 +37,7 @@ function DeleteCustomerComponent({id}) {
                 <Button ref={cancelRef} onClick={onClose}>
                   Cancel
                 </Button>
-                <Button colorScheme='red' onClick={() => {deleteCustomer(id);onClose();window.location.reload();}} ml={3}>
+                <Button colorScheme='red' onClick={() => {deleteCustomer(id);window.location.reload();onClose();}} ml={3}>
                   Delete
                 </Button>
               </AlertDialogFooter>
